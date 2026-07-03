@@ -1,5 +1,26 @@
-variable "storage_account_name" {
-  description = "Storage Account Name"
+variable "application" {
+  description = "Application name"
+  type        = string
+}
+
+variable "environment" {
+  description = "Environment"
+  type        = string
+
+  validation {
+    condition     = contains(["dev", "test", "qa", "prod"], var.environment)
+    error_message = "Environment must be dev, test, qa or prod."
+  }
+}
+
+variable "instance" {
+  description = "Instance number"
+  type        = string
+  default     = "001"
+}
+
+variable "location" {
+  description = "Azure Region"
   type        = string
 }
 
@@ -8,44 +29,30 @@ variable "resource_group_name" {
   type        = string
 }
 
-variable "location" {
-  description = "Azure Region"
-  type        = string
+variable "tags" {
+  type    = map(string)
+  default = {}
 }
 
 variable "account_tier" {
-
-  type = string
-
+  type    = string
   default = "Standard"
 
   validation {
-
-    condition = contains(
-
-      ["Standard","Premium"],
-
-      var.account_tier
-
-    )
-
-    error_message = "Tier must be Standard or Premium."
-
+    condition     = contains(["Standard", "Premium"], var.account_tier)
+    error_message = "Account tier must be Standard or Premium."
   }
-
 }
 
 variable "account_replication_type" {
-  description = "Replication Type"
-  type        = string
-
+  type    = string
   default = "LRS"
-}
 
-variable "tags" {
-  description = "Resource Tags"
-
-  type = map(string)
-
-  default = {}
+  validation {
+    condition = contains(
+      ["LRS", "GRS", "RAGRS", "ZRS", "GZRS", "RAGZRS"],
+      var.account_replication_type
+    )
+    error_message = "Invalid replication type."
+  }
 }
