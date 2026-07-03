@@ -10,11 +10,11 @@ module "storage_account" {
 
   source = "../../modules/storage-account"
 
-  application         = var.application
-  environment         = var.environment
-  instance            = var.instance
+  application = var.application
+  environment = var.environment
+  instance    = var.instance
 
-  location            = var.location
+  location = var.location
 
   resource_group_name = module.resource_group.name
 

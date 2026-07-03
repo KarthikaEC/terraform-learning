@@ -1,6 +1,11 @@
 variable "application" {
   description = "Application name"
   type        = string
+
+   validation {
+    condition     = can(regex("^[a-z0-9]+$", var.application))
+    error_message = "Application name must contain only lowercase letters and numbers."
+  }
 }
 
 variable "environment" {
