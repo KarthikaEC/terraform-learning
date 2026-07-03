@@ -1,2 +1,13 @@
-# terraform-learning
-Learning GitHub and Terraform Modules
+# Terraform Learning
+
+This repository is created to learn:
+
+- Git
+- GitHub
+- Terraform
+- Terraform Modules
+- GitHub Actions
+
+## Author
+
+KarthikaEC
