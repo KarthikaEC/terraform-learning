@@ -61,3 +61,21 @@ jobs:
           name: 'terraform plan txt'
           path: examples/dev/tfplan.txt
           if-no-files-found: error
+
+      - name: Read Terraform Plan
+        id: read_plan
+        run: |
+          echo "PLAN<<EOF" >> $GITHUB_OUTPUT
+          cat tfplan.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Comment Terraform Plan
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: terraform-plan
+          message: |
+             ## Terraform Plan
+
+             ```terraform
+             ${{ steps.read_plan.outputs.PLAN }}
+              ```
