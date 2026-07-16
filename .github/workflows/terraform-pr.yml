@@ -45,7 +45,7 @@ jobs:
       - name: Terraform Plan
         run: |
           terraform plan -no-color -input=false -lock-timeout=60s -out=tfplan
-          terraform show -txt -no-color tfplan > tfplan.txt
+          terraform show -no-color tfplan > tfplan.txt
         id: plan
       
       - name: Save terraform plan to artifacts
@@ -55,7 +55,7 @@ jobs:
           path: examples/dev/tfplan
           if-no-files-found: error
 
-      - name: Save terraform plan to artifacts as test
+      - name: Save terraform plan to artifacts as text
         uses: actions/upload-artifact@v4
         with:
           name: 'terraform plan txt'
