@@ -43,10 +43,14 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan -out=tfplan
+        run: |
+          terraform plan -no-color -input=false -lock-timeout=60s -out=tfplan
+          terraform show -json -no-color tfplan > tfplan.json
+        id: plan
       
       - name: Save terraform plan to artifacts
         uses: actions/upload-artifact@v4
         with:
           name: 'terraform plan'
-          path: examples/dev/tfplan
+          path: examples/dev/tfplan.json
+          if-no-files-found: error
