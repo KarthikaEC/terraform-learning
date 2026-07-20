@@ -1,0 +1,5 @@
+subscription_id     = "15e32568-a70b-42c4-85be-afc97e8506f1"
+resource_group_name  = "rg-tf-backend"
+storage_account_name = "sttfbackendkarthi"
+container_name       = "tfstate"
+key                  = "dev.terraform.tfstate"

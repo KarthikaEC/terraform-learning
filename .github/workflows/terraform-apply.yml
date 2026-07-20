@@ -1,0 +1,25 @@
+name: Environment Variables Demo
+
+on:
+  push:
+    branches:
+      - feature/createreg
+  
+jobs:
+  demo:
+
+    runs-on: ubuntu-latest
+    env:
+      APP_NAME: learning-storage
+      LOCATION: uksouth
+    
+    steps:
+      - name: Print First Time
+        run: |
+          echo "Step 1"
+          echo $APP_NAME
+
+      - name: Print Second Time
+        run: |
+          echo "Step 2"
+          echo $APP_NAME
