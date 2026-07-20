@@ -1,10 +1,12 @@
+name: Environment Variables Demo
+
 on:
   push:
     branches:
       - feature/terraform-apply
   
 jobs:
-  terraform:
+  demo:
 
     runs-on: ubuntu-latest
     env:
