@@ -1,6 +1,8 @@
 on:
-  branches:
+  push:
+    branches:
       - feature/terraform-apply
+  
 jobs:
   terraform:
 
