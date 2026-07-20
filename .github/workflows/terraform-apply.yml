@@ -9,7 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       APP_NAME: learning-storage
+      LOCATION: uksouth
     
     steps:
       - name: Print APP_NAME
-        run: echo $APP_NAME
+        run: |
+          echo $APP_NAME
+          echo $LOCATION
