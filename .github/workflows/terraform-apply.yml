@@ -3,7 +3,7 @@ name: Environment Variables Demo
 on:
   push:
     branches:
-      - feature/terraform-apply
+      - feature/createreg
   
 jobs:
   demo:
