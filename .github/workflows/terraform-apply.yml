@@ -1,0 +1,13 @@
+on:
+  branches:
+      - feature/terraform-apply
+jobs:
+  terraform:
+
+    runs-on: ubuntu-latest
+    env:
+      APP_NAME: learning-storage
+    
+    steps:
+      - name: Print APP_NAME
+        run: echo $APP_NAME
