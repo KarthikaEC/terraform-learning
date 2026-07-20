@@ -14,7 +14,12 @@ jobs:
       LOCATION: uksouth
     
     steps:
-      - name: Print APP_NAME
+      - name: Print First Time
         run: |
+          echo "Step 1"
           echo $APP_NAME
-          echo $LOCATION
+
+      - name: Print Second Time
+        run: |
+          echo "Step 2"
+          echo $APP_NAME
